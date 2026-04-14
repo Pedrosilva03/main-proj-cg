@@ -3,3 +3,6 @@ Binaries/
 DerivedDataCache/
 Intermediate/
 Saved/
+
+# Ignore auxiliar virtual environment
+labeling/
