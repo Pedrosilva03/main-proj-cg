@@ -11,3 +11,7 @@ ultralytics-thop-2.0.18
 urllib3-2.6.3
 
 # Labeling virtual enironment for label-studio
+
+# Using venv:
+# > detector\labeling\Scripts\activate on root folder
+# > deactivate
