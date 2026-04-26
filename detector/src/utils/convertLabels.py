@@ -3,8 +3,8 @@ import sys
 import cv2
 import shutil
 
-out_images = "../detector/data/sintetic/images/"
-out_labels = "../detector/data/sintetic/labels/"
+out_images = "detector/data/sintetic/images/"
+out_labels = "detector/data/sintetic/labels/"
 
 def test_print(folder, tmp, x_min, x_max, y_min, y_max):
     img = cv2.imread(os.path.join(folder, tmp))
