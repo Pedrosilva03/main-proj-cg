@@ -44,9 +44,7 @@ def main(argv):
     tmp = ''
     for file in os.listdir(folder):
         if file.endswith(".txt"):
-            # test_printBound(folder, tmp, file)
             shutil.copy(os.path.join(folder, tmp), os.path.join(out_images, tmp))
-            continue
         
             path = os.path.join(folder, file)
 
@@ -66,14 +64,17 @@ def main(argv):
             width = (x_max - x_min)
             height = (y_max - y_min)
 
-            new_label = f'{coordinates[0]} {x_center} {y_center} {width} {height}'
-            
-            with open(path, "w", encoding='utf-8') as f:
-                f.write(new_label)
-            f.close()
+            # test_printBound(folder, tmp, file)
+            # continue
 
             # test_print(folder, tmp, x_min, x_max, y_min, y_max)
+            # continue
 
+            new_label = f'{coordinates[0]} {x_center} {y_center} {width} {height}'
+            
+            with open(os.path.join(out_labels, file), "w", encoding='utf-8') as f:
+                f.write(new_label)
+            f.close()
         tmp = file
 
 if __name__ == "__main__":
