@@ -80,13 +80,15 @@ def split_data():
         shutil.copy(val_element[0], os.path.join(yolo_dataset_path, "val/images", os.path.basename(val_element[0])))
         shutil.copy(val_element[1], os.path.join(yolo_dataset_path, "val/labels", os.path.basename(val_element[1])))
 
+    print("Dataset splitted and saved")
+
 def main():
     create_yaml()
     split_data()
 
     model = ultralytics.YOLO("yolov8n.pt")
 
-    model.train(data=yaml_path, epochs=50, imgsz=640)
+    model.train(data=yaml_path, epochs=15, imgsz=640)
 
 if __name__ == "__main__":
     main()
