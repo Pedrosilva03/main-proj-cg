@@ -23,7 +23,7 @@ def create_yaml():
         number_of_classes = len(parsed_classes.keys())
     
     yaml_content = {
-        'path': '/detector/data_split',
+        'path': 'detector/data_split',
         'train': 'train/images',
         'val': 'val/images',
         'nc': number_of_classes,
@@ -83,7 +83,6 @@ def split_data():
 def main():
     create_yaml()
     split_data()
-    return
 
     model = ultralytics.YOLO("yolov8n.pt")
 
