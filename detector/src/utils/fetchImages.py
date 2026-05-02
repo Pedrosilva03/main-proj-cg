@@ -30,10 +30,12 @@ def main(argv):
     frameCounter = 1
     for trainFrame in train:
         cv2.imwrite(os.path.join(trainPath, "real_%d.png" % frameCounter), trainFrame)
+        frameCounter += 1
 
     frameCounter = 1
     for testFrame in test:
         cv2.imwrite(os.path.join(testPath, "real_%d.png" % frameCounter), testFrame)
+        frameCounter += 1
 
 if __name__ == "__main__":
     main(sys.argv)
