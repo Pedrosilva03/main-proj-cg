@@ -1,8 +1,8 @@
-# Fetch images from a video, adding 80% for training and 20% for testing
+# Fetch images from a video, adding 70% for training and 30% for testing
 
 import cv2, os, sys, random
 
-portion = 0.8
+portion = 0.7
 
 trainPath = "detector/data/real/images"
 testPath = "detector/data/test"
@@ -14,7 +14,7 @@ def getFrames(videoPath):
     counter = 1
     while success:
         success, frame = capture.read()
-        if counter % 10 == 0:
+        if counter % 40 == 0:
             frames.append(frame)
         counter += 1
     return frames
