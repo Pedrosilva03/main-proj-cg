@@ -26,6 +26,7 @@ def create_yaml():
         'path': 'detector/data_split',
         'train': 'train/images',
         'val': 'val/images',
+        'test': 'test/images',
         'nc': number_of_classes,
         'names': parsed_classes
     }
@@ -43,7 +44,7 @@ def split_data():
     
     # Create directories
 
-    for type in ['train', 'val']:
+    for type in ['train', 'val', 'test']:
         os.makedirs(os.path.join(yolo_dataset_path, type, "images"))
         os.makedirs(os.path.join(yolo_dataset_path, type, "labels"))
 
@@ -63,6 +64,10 @@ def split_data():
     sintetic_data = collect_data("sintetic")
     real_data = collect_data("real")
 
+    test_real_data = collect_data("test/real")
+    test_sintetic_data = collect_data("test/sintetic")
+
+    test_data = test_real_data + test_sintetic_data
     total_data = sintetic_data + real_data
     random.seed(42)
     random.shuffle(total_data)
@@ -79,6 +84,10 @@ def split_data():
     for val_element in val_data:
         shutil.copy(val_element[0], os.path.join(yolo_dataset_path, "val/images", os.path.basename(val_element[0])))
         shutil.copy(val_element[1], os.path.join(yolo_dataset_path, "val/labels", os.path.basename(val_element[1])))
+
+    for test_element in test_data:
+        shutil.copy(test_element[0], os.path.join(yolo_dataset_path, "test/images", os.path.basename(test_element[0])))
+        shutil.copy(test_element[1], os.path.join(yolo_dataset_path, "test/labels", os.path.basename(test_element[1])))
 
     print("Dataset splitted and saved")
 
