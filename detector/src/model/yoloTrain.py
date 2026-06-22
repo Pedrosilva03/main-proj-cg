@@ -88,7 +88,7 @@ def main():
 
     model = ultralytics.YOLO("yolov8n.pt")
 
-    model.train(data=yaml_path, epochs=15, imgsz=640)
+    model.train(data=yaml_path, epochs=100, imgsz=1024, batch=2, amp=False)
 
 if __name__ == "__main__":
     main()
