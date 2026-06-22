@@ -6,5 +6,4 @@ Saved/
 .vs/
 *.sln
 
-# Ignore auxiliar virtual environment
-labeling/
+runs/
